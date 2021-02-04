@@ -22,34 +22,17 @@ targets_by_analysis_level:
 #    https://bids-standard.github.io/pybids/generated/bids.layout.BIDSLayout.html#bids.layout.BIDSLayout.get
 
 pybids_inputs:
-  dwi:
+  bold:
     filters:
-      suffix: 'dwi'
+      suffix: 'bold'
       extension: '.nii.gz'
-      scope: 'raw' #raw, derivatives (or can be pipeline name too!)
-      invalid_filters: 'allow'
-      datatype: 'dwi'
+      datatype: 'func'
     wildcards:
       - subject
       - session
       - acquisition
+      - task
       - run
-      - dir
-
-  t1w:
-    filters:
-      suffix: 'T1w'
-      extension: '.nii.gz'
-      scope: 'raw' #raw, derivatives (or can be pipeline name too!)
-      datatype: 'anat'
-      invalid_filters: 'allow'
-      space: null
-    wildcards:
-      - subject
-      - session
-      - acquisition
-      - run
-
    
 
 #configuration for the command-line parameters to make available
@@ -95,8 +78,9 @@ parse_args:
 
  # custom command-line parameters can then be added, these will get added to the config
  # below is an example to override config['bet_frac']
-  --bet_frac:
-    help: Specify custom template
+  --smoothing_fwhm:
+      nargs: '+'
+      required: True
 
 
 #--- workflow specific configuration -- below is just an example:
@@ -107,6 +91,5 @@ singularity:
     fsl: 'docker://brainlife/fsl/6.0.0'
 
 
-bet_frac: 0.1
 
 

@@ -1,4 +1,4 @@
 {{cookiecutter.app_name}}
 ============
 
-Description of app goes here
+{{cookiecutter.app_description}}
