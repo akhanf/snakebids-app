@@ -3,7 +3,8 @@ Installation
 
 Install from github::
 
-    pip install -e http://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
+    git clone http://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
+    pip install -e {{cookiecutter.app_name}}
 
 
 Running the app
