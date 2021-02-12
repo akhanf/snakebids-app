@@ -1,11 +1,11 @@
 Installation
 ============
 
-Install from github::
+Install from github with pip::
 
-    git clone http://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
-    pip install -e {{cookiecutter.app_name}}
+    pip install -e git+https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}#egg={{cookiecutter.app_name}}
 
+Note: you can re-run this command to re-install with the latest version
 
 Running the app
 ===============
